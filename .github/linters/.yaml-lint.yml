@@ -1,0 +1,12 @@
+# Extends the default yamllint config by adjusting some options.
+extends: default
+
+rules:
+  comments:
+    min-spaces-from-content: 1
+  document-start: disable
+  comments-indentation: disable
+  line-length:
+    level: warning
+    allow-non-breakable-inline-mappings: true
+  truthy: disable
