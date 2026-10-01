@@ -4,17 +4,58 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Purpose
 
-This repository is currently empty. It exists as a starting point — the workflows,
-linter configs, and contribution scaffolding under `.github/`, `.vscode/`, and `.claude/`
-are the canonical Senzing baseline, but no project code lives here yet.
+The landing page for the Senzing Agentic AI Bootcamp, published with GitHub Pages at
+`https://hub.senzing.com/bootcamp/`. It pitches the bootcamp and sends a potential
+Bootcamper to one of three platform pages:
 
-When work begins, replace this section with:
+- Claude: `https://hub.senzing.com/senzing-bootcamp-claude-plugin`
+- Kiro: `https://hub.senzing.com/senzing-bootcamp-kiro-power`
+- ChatGPT: `https://hub.senzing.com/senzing-bootcamp-chatgpt-plugin`
 
-- A short description of what the repository builds or contains.
-- Build / test / lint commands (typically driven by `make`).
-- Notable architecture decisions or external dependencies a contributor needs to know.
-- Any CI/CD workflows specific to this project (beyond the standard add-labels /
-  add-to-project / dependabot / lint-workflows / spellcheck baseline that's already wired up).
+Page content (modules, outcomes, requirements, plan minimums) is adapted from the READMEs of
+`Senzing/senzing-bootcamp-claude-plugin`, `Senzing/senzing-bootcamp-kiro-power` and
+`Senzing/senzing-bootcamp-chatgpt-plugin`. When those change, check the page still matches.
+
+## Layout
+
+- `docs/index.html`: the single page. Hand-written HTML, no JavaScript.
+- `docs/index.css`: hand-written stylesheet; brand colors are custom properties on `:root`.
+- `docs/.nojekyll`: files are served as-is, with no Jekyll processing.
+- `docs/images/`: logo, 32 px favicon, 180 px apple-touch icon.
+
+There is no build step, package manager, framework or test suite.
+
+## Conventions
+
+- **Style:** the Senzing "Obsidian & Ember" brand system (the `senzing-brand` skill): dark nav
+  and hero, alternating white / warm off-white body sections, dark closing call to action and
+  footer; Roboto from Google Fonts; the ember gradient only for hero accents and the primary
+  call to action.
+- **Paths must be relative** (`images/logo.png`, not `/images/logo.png`). The site is served
+  under `/bootcamp/`, so a root-absolute path resolves against the `hub.senzing.com` root
+  (`Senzing/senzing.github.io`) and breaks.
+- **External resources:** only Google Fonts. No analytics, cookies or third-party scripts.
+- **Phone width:** no horizontal scroll at 360 px.
+
+## Checks
+
+The spellcheck is the only CI check that applies to `docs/`. Run it locally with:
+
+```bash
+npx --yes cspell@9 lint --config .vscode/cspell.json --no-progress --gitignore "**"
+```
+
+Add new product or brand terms to `words` in `.vscode/cspell.json`. `lint-workflows`
+(super-linter) runs only when `.github/workflows/**` changes.
+
+To preview, open `docs/index.html` in a browser. `main` requires signed commits and an
+approving code-owner review.
+
+## Publishing
+
+`hub.senzing.com` is the custom domain of `Senzing/senzing.github.io`, so this repo's Pages
+site appears at `/bootcamp/`. Pages is enabled manually in this repo's settings
+(deploy from branch `main`, folder `/docs`), once the three platform pages are live.
 
 ## CI/CD Workflows (baseline)
 
