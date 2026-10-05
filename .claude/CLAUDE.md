@@ -21,7 +21,9 @@ Page content (modules, outcomes, requirements, plan minimums) is adapted from th
 - `docs/index.html`: the single page. Hand-written HTML, no JavaScript.
 - `docs/index.css`: hand-written stylesheet; brand colors are custom properties on `:root`.
 - `docs/.nojekyll`: files are served as-is, with no Jekyll processing.
-- `docs/images/`: logo, 32 px favicon, 180 px apple-touch icon.
+- `docs/images/`: logo, 32 px favicon, 180 px apple-touch icon, promo video poster.
+- `docs/video/`: the two-minute promo video (MP4, captions burned in), played on demand in the
+  `#watch` section.
 
 There is no build step, package manager, framework or test suite.
 
@@ -54,8 +56,9 @@ approving code-owner review.
 ## Publishing
 
 `hub.senzing.com` is the custom domain of `Senzing/senzing.github.io`, so this repo's Pages
-site appears at `/bootcamp/`. Pages is enabled manually in this repo's settings
-(deploy from branch `main`, folder `/docs`), once the three platform pages are live.
+site appears at `/bootcamp/`. Pages is enabled in this repo's settings (deploy from branch
+`main`, folder `/docs`), so every merge to `main` publishes the page. After a merge, check the
+build with `gh api repos/Senzing/bootcamp/pages/builds/latest` and the live page.
 
 ## CI/CD Workflows (baseline)
 
