@@ -377,6 +377,20 @@ section {
   margin-left: 0.5rem;
 }
 
+/* ---------- Watch: promo video ---------- */
+
+.promo {
+  display: block;
+  width: 100%;
+  max-width: 56rem;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  margin-top: 2.25rem;
+  border-radius: var(--radius);
+  background: var(--obsidian);
+  box-shadow: var(--shadow-light);
+}
+
 /* ---------- Covers: module list ---------- */
 
 .modules {
